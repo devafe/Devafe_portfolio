@@ -1,0 +1,229 @@
+/* ============================================================
+   DEVAFE — Global Stylesheet
+   Brand tokens pulled directly from the DEVAFE brand kit.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  /* Brand colors */
+  --bg:        #0B1220; /* page background */
+  --bg-alt:    #1E293B; /* card / section background */
+  --cyan:      #38BDF8; /* primary accent */
+  --purple:    #7C3AED; /* secondary accent */
+  --slate:     #334155; /* borders / muted */
+  --ink:       #F8FAFC; /* primary text */
+  --ink-muted: #94A3B8; /* secondary text */
+
+  /* Gradient signature — used sparingly, on the logo mark & key CTAs only */
+  --gradient: linear-gradient(135deg, var(--cyan), var(--purple));
+
+  /* Type */
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout */
+  --max-w: 1120px;
+  --radius: 10px;
+  --gap: 1.5rem;
+}
+
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+h1,h2,h3,h4{
+  font-family: var(--font-head);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+a{ color: var(--cyan); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+code, pre, .mono{ font-family: var(--font-mono); }
+
+img{ max-width: 100%; display: block; }
+
+.container{
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* Visible keyboard focus everywhere — accessibility floor */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--slate);
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.btn:hover{ text-decoration: none; transform: translateY(-2px); }
+.btn-primary{
+  background: var(--gradient);
+  border: none;
+  color: var(--bg);
+}
+.btn-ghost{
+  background: transparent;
+  color: var(--ink);
+}
+.btn-ghost:hover{ border-color: var(--cyan); }
+
+/* ---------- Navbar ---------- */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11,18,32,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--slate);
+}
+.navbar .container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+.nav-logo{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+.nav-logo:hover{ text-decoration: none; }
+.nav-logo svg{ width: 28px; height: 28px; }
+
+.nav-links{
+  display: none;
+  gap: 1.75rem;
+  list-style: none;
+}
+.nav-links a{
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.nav-links a:hover, .nav-links a.active{ color: var(--cyan); text-decoration: none; }
+
+.nav-toggle{
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@media (min-width: 860px){
+  .nav-links{ display: flex; }
+  .nav-toggle{ display: none; }
+}
+
+/* Mobile dropdown menu */
+.nav-mobile{
+  display: none;
+  flex-direction: column;
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--slate);
+}
+.nav-mobile.open{ display: flex; }
+.nav-mobile a{
+  padding: 0.9rem 1.25rem;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--slate);
+  font-size: 0.95rem;
+}
+.nav-mobile a:hover, .nav-mobile a.active{ color: var(--cyan); text-decoration: none; }
+
+/* ---------- Footer ---------- */
+.site-footer{
+  border-top: 1px solid var(--slate);
+  padding: 3rem 0 2rem;
+  margin-top: 5rem;
+}
+.footer-grid{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.footer-socials{
+  display: flex;
+  gap: 1rem;
+}
+.footer-socials a{
+  width: 38px; height: 38px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--slate);
+  border-radius: 50%;
+  color: var(--ink-muted);
+}
+.footer-socials a:hover{ color: var(--cyan); border-color: var(--cyan); text-decoration: none; }
+.footer-note{
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Section helpers ---------- */
+.section{ padding: 5rem 0; }
+.eyebrow{
+  font-family: var(--font-mono);
+  color: var(--cyan);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.section-title{ font-size: clamp(1.75rem, 4vw, 2.5rem); margin-top: 0.5rem; }
+.section-sub{ color: var(--ink-muted); max-width: 60ch; margin-top: 0.75rem; }
+
+.card{
+  background: var(--bg-alt);
+  border: 1px solid var(--slate);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.card:hover{ border-color: var(--cyan); transform: translateY(-3px); }
+
+.grid{
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px){
+  .grid-2{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px){
+  .grid-3{ grid-template-columns: repeat(3, 1fr); }
+}

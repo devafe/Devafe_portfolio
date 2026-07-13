@@ -1,0 +1,161 @@
+/* ============================================================
+   DEVAFE — Home Page Styles
+   ============================================================ */
+
+.hero{
+  padding: 4rem 0 3rem;
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 960px){
+  .hero{
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    padding: 6rem 0 4rem;
+  }
+}
+
+.hero-eyebrow{
+  font-family: var(--font-mono);
+  color: var(--purple);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-eyebrow::before{
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+}
+
+.hero h1{
+  font-size: clamp(2.25rem, 6vw, 3.5rem);
+  margin-top: 0.75rem;
+}
+.hero h1 .accent{
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Typing effect target */
+.hero-typed{
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  font-size: 1.05rem;
+  margin-top: 1.25rem;
+  min-height: 1.5em;
+}
+.hero-typed .cursor{
+  display: inline-block;
+  width: 2px;
+  background: var(--cyan);
+  margin-left: 2px;
+  animation: blink 1s step-start infinite;
+}
+@keyframes blink{ 50%{ opacity: 0; } }
+
+.hero-cta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Terminal widget */
+.terminal{
+  background: var(--bg-alt);
+  border: 1px solid var(--slate);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 0 40px -12px rgba(56,189,248,0.25);
+}
+.terminal-bar{
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--slate);
+}
+.terminal-dot{ width: 11px; height: 11px; border-radius: 50%; }
+.terminal-dot.red{ background: #F87171; }
+.terminal-dot.yellow{ background: #FBBF24; }
+.terminal-dot.green{ background: #34D399; }
+.terminal-body{
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 1.25rem;
+  color: var(--ink-muted);
+  line-height: 1.9;
+}
+.terminal-body .cmd{ color: var(--cyan); }
+.terminal-body .ok{ color: #34D399; }
+
+/* Quick stats */
+.stats-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  text-align: center;
+}
+@media (min-width: 640px){ .stats-grid{ grid-template-columns: repeat(4, 1fr); } }
+.stat-number{
+  font-family: var(--font-head);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cyan);
+}
+.stat-label{
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Section header row with "view all" link */
+.section-head-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Project / blog / cert preview cards */
+.project-card .tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.9rem 0;
+}
+.tag{
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--purple);
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.35);
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+}
+.project-card h3{ font-size: 1.15rem; margin-bottom: 0.4rem; }
+.project-card p{ color: var(--ink-muted); font-size: 0.9rem; }
+.project-card .links{ display: flex; gap: 1rem; margin-top: 1rem; font-size: 0.85rem; }
+
+.article-card time, .cert-card .cert-date{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.cta-band{
+  background: var(--bg-alt);
+  border: 1px solid var(--slate);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.cta-band h2{ font-size: clamp(1.5rem, 4vw, 2.1rem); }
+.cta-band p{ color: var(--ink-muted); margin: 0.75rem 0 1.75rem; }

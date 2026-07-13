@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEVAFE — Build with Purpose</title>
+  <meta name="description" content="DEVAFE — Data Scientist, Machine Learning Engineer & Web Developer. Building with purpose.">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="container hero">
+      <div class="hero-copy">
+        <p class="hero-eyebrow">// building with purpose</p>
+        <h1>Hi, I'm Devafe —<br><span class="accent">turning data into direction.</span></h1>
+        <p class="hero-typed">&gt; <span id="hero-typed-text"></span><span class="cursor">&nbsp;</span></p>
+        <div class="hero-cta">
+          <a href="projects.html" class="btn btn-primary">View Projects</a>
+          <a href="contact.html" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="cmd">&gt;</span> git commit -m "keep building"</div>
+          <div class="ok">&check; committed</div>
+          <div><span class="cmd">&gt;</span> python train_model.py</div>
+          <div class="ok">&check; accuracy: 0.94</div>
+          <div><span class="cmd">&gt;</span> echo "Build with Purpose."</div>
+          <div>Build with Purpose.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= QUICK STATS ================= -->
+    <section class="container section" style="padding-top:0;">
+      <div class="stats-grid">
+        <div><div class="stat-number">15+</div><div class="stat-label">Projects Shipped</div></div>
+        <div><div class="stat-number">5+</div><div class="stat-label">Certifications</div></div>
+        <div><div class="stat-number">3+</div><div class="stat-label">Years Learning</div></div>
+        <div><div class="stat-number">∞</div><div class="stat-label">Curiosity</div></div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS ================= -->
+    <section class="container section">
+      <div class="section-head-row">
+        <div>
+          <p class="eyebrow">Featured Work</p>
+          <h2 class="section-title">Recent Projects</h2>
+        </div>
+        <a href="projects.html" class="btn btn-ghost">View All &rarr;</a>
+      </div>
+      <div class="grid grid-3" id="featured-projects">
+        <!-- Populated by home.js, falls back to sample cards until Supabase is connected -->
+      </div>
+    </section>
+
+    <!-- ================= LATEST ARTICLE + CERT ================= -->
+    <section class="container section">
+      <div class="grid grid-2">
+        <article class="card article-card">
+          <p class="eyebrow">Latest Article</p>
+          <h3 style="margin-top:0.75rem;">Your latest blog post title goes here</h3>
+          <p class="section-sub">Short excerpt of your latest write-up will appear here once the blog is connected.</p>
+          <p style="margin-top:1rem;"><time>Coming soon</time></p>
+          <a href="blog.html" class="btn btn-ghost" style="margin-top:1.25rem;">Read the Blog &rarr;</a>
+        </article>
+
+        <article class="card cert-card">
+          <p class="eyebrow">Featured Certificate</p>
+          <h3 style="margin-top:0.75rem;">Your featured certification title</h3>
+          <p class="section-sub">Issuer name &middot; <span class="cert-date">Date earned</span></p>
+          <a href="certificates.html" class="btn btn-ghost" style="margin-top:1.25rem;">View All Certificates &rarr;</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="container section">
+      <div class="cta-band">
+        <h2>Have a project in mind?</h2>
+        <p>I'm open to freelance work, collaborations, and interesting problems.</p>
+        <a href="contact.html" class="btn btn-primary">Let's Talk</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/home.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
