@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — DEVAFE Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="assets/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="admin-body">
+
+  <div class="admin-shell">
+    <aside class="admin-sidebar">
+      <div class="nav-logo">DEVAFE Admin</div>
+      <a href="dashboard.html" class="admin-nav-link active">Overview</a>
+      <a href="projects.html" class="admin-nav-link">Projects</a>
+      <a href="blog.html" class="admin-nav-link">Blog Posts</a>
+      <a href="certificates.html" class="admin-nav-link">Certificates</a>
+      <a href="content.html" class="admin-nav-link">Site Content</a>
+      <a href="messages.html" class="admin-nav-link">Messages</a>
+      <a href="../index.html" class="admin-nav-link" style="margin-top:1.5rem;border-top:1px solid var(--slate);padding-top:1rem;">&larr; View Live Site</a>
+    </aside>
+
+    <div class="admin-main">
+      <div class="admin-topbar">
+        <div class="admin-topbar-title"><h1>Overview</h1></div>
+        <div class="admin-user">
+          <span id="admin-user-email"></span>
+          <button id="logout-btn" class="btn btn-ghost" style="padding:0.4rem 0.9rem;font-size:0.8rem;">Log Out</button>
+        </div>
+      </div>
+
+      <div class="admin-mobile-nav">
+        <a href="dashboard.html" class="active">Overview</a>
+        <a href="projects.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="content.html">Content</a>
+        <a href="messages.html">Messages</a>
+      </div>
+
+      <div class="admin-content">
+        <div class="grid grid-3" style="margin-bottom:2rem;">
+          <div class="card overview-card">
+            <div class="num" id="count-projects">—</div>
+            <div class="label">Projects</div>
+          </div>
+          <div class="card overview-card">
+            <div class="num" id="count-posts">—</div>
+            <div class="label">Blog Posts</div>
+          </div>
+          <div class="card overview-card">
+            <div class="num" id="count-certs">—</div>
+            <div class="label">Certificates</div>
+          </div>
+          <div class="card overview-card">
+            <div class="num" id="count-messages">—</div>
+            <div class="label">Unread Messages</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-bottom:1rem;">Quick links</h3>
+          <p class="section-sub" style="margin-bottom:1rem;">Everything editable from here: Projects, Blog, Certificates, and every text section of Home / About / Skills / Uses / Learning Journey / Contact via <strong>Site Content</strong>.</p>
+          <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+            <a href="projects.html" class="btn btn-ghost">+ Add Project</a>
+            <a href="blog.html" class="btn btn-ghost">+ Write Post</a>
+            <a href="certificates.html" class="btn btn-ghost">+ Add Certificate</a>
+            <a href="content.html" class="btn btn-ghost">Edit Page Content</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/supabase-client.js"></script>
+  <script src="assets/auth-guard.js"></script>
+  <script>
+    async function loadCounts(){
+      const [projects, posts, certs, messages] = await Promise.all([
+        supabase.from('projects').select('id', { count: 'exact', head: true }),
+        supabase.from('blog_posts').select('id', { count: 'exact', head: true }),
+        supabase.from('certificates').select('id', { count: 'exact', head: true }),
+        supabase.from('contact_messages').select('id', { count: 'exact', head: true })
+      ]);
+      document.getElementById('count-projects').textContent = projects.count ?? '0';
+      document.getElementById('count-posts').textContent = posts.count ?? '0';
+      document.getElementById('count-certs').textContent = certs.count ?? '0';
+      document.getElementById('count-messages').textContent = messages.count ?? '0';
+    }
+    document.addEventListener('DOMContentLoaded', loadCounts);
+  </script>
+</body>
+</html>

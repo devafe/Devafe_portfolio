@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — DEVAFE</title>
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/misc.css">
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <main>
+    <section class="container error-page">
+      <div class="error-code">404</div>
+      <h1 style="margin-top:1rem;">This page doesn't exist</h1>
+      <p class="section-sub" style="margin-inline:auto;margin-top:0.75rem;">The link might be broken, or the page may have moved.</p>
+
+      <div style="max-width:420px;margin:2rem auto 0;">
+        <input type="text" id="error-search" class="search-input" placeholder="Search projects...">
+      </div>
+
+      <a href="index.html" class="btn btn-primary" style="margin-top:2rem;">Back to Home</a>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.getElementById('error-search').addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' && e.target.value.trim()){
+        window.location.href = `projects.html?search=${encodeURIComponent(e.target.value.trim())}`;
+      }
+    });
+  </script>
+</body>
+</html>

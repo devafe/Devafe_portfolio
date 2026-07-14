@@ -1,0 +1,77 @@
+/* ============================================================
+   DEVAFE — About Page Styles
+   ============================================================ */
+
+.page-hero{
+  padding: 4rem 0 2rem;
+  max-width: 70ch;
+}
+.page-hero h1{ font-size: clamp(2rem, 5vw, 3rem); margin-top: 0.5rem; }
+.page-hero p{ color: var(--ink-muted); margin-top: 1rem; font-size: 1.05rem; }
+
+.about-bio{
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 860px){
+  .about-bio{ grid-template-columns: 0.8fr 1.2fr; align-items: start; }
+}
+.about-photo{
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  border: 1px solid var(--slate);
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.about-photo img{ width: 100%; height: 100%; object-fit: cover; }
+.about-text p{ margin-bottom: 1rem; color: var(--ink-muted); }
+.about-text p:first-child{ color: var(--ink); font-size: 1.1rem; }
+
+/* Journey timeline */
+.timeline{
+  position: relative;
+  padding-left: 1.75rem;
+  border-left: 2px solid var(--slate);
+}
+.timeline-item{
+  position: relative;
+  padding-bottom: 2.25rem;
+}
+.timeline-item:last-child{ padding-bottom: 0; }
+.timeline-item::before{
+  content: '';
+  position: absolute;
+  left: -2.35rem;
+  top: 0.2rem;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(56,189,248,0.15);
+}
+.timeline-date{
+  font-family: var(--font-mono);
+  color: var(--cyan);
+  font-size: 0.8rem;
+}
+.timeline-item h4{ margin-top: 0.35rem; }
+.timeline-item p{ color: var(--ink-muted); margin-top: 0.35rem; font-size: 0.95rem; }
+
+/* Philosophy / values cards */
+.value-card{ text-align: left; }
+.value-card .icon{
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 8px;
+  background: rgba(56,189,248,0.12);
+  color: var(--cyan);
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+}
+
+/* Interests tag cloud */
+.interest-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.interest-list .tag{ font-size: 0.85rem; padding: 0.4rem 0.9rem; }

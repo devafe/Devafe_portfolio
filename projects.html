@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — DEVAFE</title>
+  <meta name="description" content="All projects — data science, machine learning, web development, and more.">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/projects.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <main>
+    <section class="container page-hero">
+      <p class="eyebrow">// projects</p>
+      <h1>Everything I've built</h1>
+      <p>Search, filter by category, or sort to find what you're looking for.</p>
+    </section>
+
+    <section class="container section" style="padding-top:1rem;">
+      <div class="filter-bar">
+        <input type="text" id="project-search" class="search-input" placeholder="Search projects by name, tag, or keyword...">
+        <div class="filter-row">
+          <div class="category-pills" id="category-pills"></div>
+          <select id="sort-select" class="sort-select">
+            <option value="newest">Newest first</option>
+            <option value="oldest">Oldest first</option>
+            <option value="az">A – Z</option>
+          </select>
+        </div>
+      </div>
+
+      <p class="results-count" id="results-count"></p>
+      <div class="grid grid-3" id="projects-grid"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/projects-data.js"></script>
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

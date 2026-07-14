@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — DEVAFE</title>
+  <meta name="description" content="Tutorials, project write-ups, and learning notes.">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/projects.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <main>
+    <section class="container page-hero">
+      <p class="eyebrow">// blog</p>
+      <h1>Notes, tutorials &amp; write-ups</h1>
+      <p>Things I've learned, built, and figured out along the way.</p>
+    </section>
+
+    <section class="container section" style="padding-top:1rem;">
+      <div class="filter-bar">
+        <input type="text" id="blog-search" class="search-input" placeholder="Search posts...">
+        <div class="category-pills" id="blog-category-pills"></div>
+      </div>
+      <div class="grid grid-3" id="blog-grid"></div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/content-data.js"></script>
+  <script src="assets/js/blog.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

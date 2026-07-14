@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post — DEVAFE</title>
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/blog.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <main>
+    <div id="not-found-state" class="container" style="display:none; padding: 5rem 0; text-align:center;">
+      <p class="eyebrow">// post not found</p>
+      <h1 style="margin-top:1rem;">Couldn't find that post</h1>
+      <a href="blog.html" class="btn btn-primary" style="margin-top:2rem;">Back to Blog</a>
+    </div>
+
+    <div id="post-content">
+      <section class="container post-hero">
+        <a href="blog.html" style="font-size:0.9rem;">&larr; Back to Blog</a>
+        <p class="cat-tag" id="post-category" style="margin-top:1.5rem;"></p>
+        <h1 id="post-title"></h1>
+        <div class="post-meta">
+          <span id="post-date"></span>
+          <span id="post-reading-time"></span>
+        </div>
+      </section>
+
+      <section class="container post-body" id="post-body"></section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/content-data.js"></script>
+  <script src="assets/js/blog.js"></script>
+  <script src="assets/js/blog-post.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

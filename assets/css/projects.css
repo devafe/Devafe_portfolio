@@ -1,0 +1,129 @@
+/* ============================================================
+   DEVAFE — Projects Page Styles
+   ============================================================ */
+
+.filter-bar{
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.search-input{
+  width: 100%;
+  background: var(--bg-alt);
+  border: 1px solid var(--slate);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+}
+.search-input:focus{ outline: 2px solid var(--cyan); outline-offset: 2px; }
+.search-input::placeholder{ color: var(--ink-muted); }
+
+.filter-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.category-pills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.pill{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--slate);
+  background: transparent;
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.pill:hover{ border-color: var(--cyan); color: var(--ink); }
+.pill.active{
+  background: var(--gradient);
+  border-color: transparent;
+  color: var(--bg);
+}
+
+.sort-select{
+  background: var(--bg-alt);
+  border: 1px solid var(--slate);
+  color: var(--ink);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+}
+
+.results-count{
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  margin-bottom: 1.5rem;
+}
+
+.empty-state{
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--ink-muted);
+}
+
+.featured-badge{
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--purple);
+  background: rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.35);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Project Details page ---------- */
+.detail-hero{
+  padding: 3rem 0 2rem;
+}
+.detail-hero .category-label{
+  font-family: var(--font-mono);
+  color: var(--cyan);
+  font-size: 0.85rem;
+}
+.detail-hero h1{ font-size: clamp(1.9rem, 5vw, 2.75rem); margin-top: 0.5rem; }
+.detail-links{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.detail-image{
+  border-radius: var(--radius);
+  border: 1px solid var(--slate);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.detail-block{ margin-bottom: 2.5rem; }
+.detail-block h2{ font-size: 1.35rem; margin-bottom: 0.9rem; }
+.detail-block p{ color: var(--ink-muted); }
+.detail-block ul{ color: var(--ink-muted); padding-left: 1.25rem; }
+.detail-block li{ margin-bottom: 0.5rem; }
+
+.tech-list{ display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.screenshot-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.screenshot-grid img{
+  border-radius: var(--radius);
+  border: 1px solid var(--slate);
+}

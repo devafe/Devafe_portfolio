@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details — DEVAFE</title>
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/projects.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <div id="site-nav"></div>
+
+  <main>
+    <!-- Shown if no project matches the ?id= in the URL -->
+    <div id="not-found-state" class="container" style="display:none; padding: 5rem 0; text-align:center;">
+      <p class="eyebrow">// project not found</p>
+      <h1 style="margin-top:1rem;">Couldn't find that project</h1>
+      <p class="section-sub" style="margin-inline:auto;">It may have been removed, or the link is incorrect.</p>
+      <a href="projects.html" class="btn btn-primary" style="margin-top:2rem;">Back to Projects</a>
+    </div>
+
+    <div id="detail-content">
+      <section class="container detail-hero">
+        <a href="projects.html" style="font-size:0.9rem;">&larr; Back to Projects</a>
+        <p class="category-label" id="detail-category" style="margin-top:1.5rem;"></p>
+        <h1 id="detail-title"></h1>
+        <p class="section-sub" id="detail-summary"></p>
+        <div class="detail-links" id="detail-links"></div>
+      </section>
+
+      <section class="container">
+        <div class="detail-image">
+          <img id="detail-image" src="" alt="">
+        </div>
+      </section>
+
+      <section class="container" style="max-width: 80ch;">
+        <div class="detail-block">
+          <h2>Overview &amp; Problem</h2>
+          <p id="detail-problem"></p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Solution</h2>
+          <p id="detail-solution"></p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Key Features</h2>
+          <ul id="detail-features"></ul>
+        </div>
+
+        <div class="detail-block">
+          <h2>Technologies Used</h2>
+          <div class="tech-list" id="detail-tech"></div>
+        </div>
+
+        <div class="detail-block" id="detail-screenshots-block">
+          <h2>Screenshots</h2>
+          <div class="screenshot-grid" id="detail-screenshots"></div>
+        </div>
+
+        <div class="detail-block">
+          <h2>Lessons Learned</h2>
+          <p id="detail-lessons"></p>
+        </div>
+
+        <div class="detail-block">
+          <h2>Future Improvements</h2>
+          <p id="detail-future"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/supabase-client.js"></script>
+  <script src="assets/js/projects-data.js"></script>
+  <script src="assets/js/project-details.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
