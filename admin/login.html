@@ -6,7 +6,7 @@
   <title>Admin Login — DEVAFE</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="assets/admin.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="admin-body">
@@ -32,42 +32,52 @@
 
   <script src="../assets/js/supabase-client.js"></script>
   <script>
-    if(!SUPABASE_CONFIGURED){
-      document.getElementById('login-form').innerHTML = `
-        <p class="form-status error" style="text-align:left;">
-          Supabase isn't connected yet. Open <code>assets/js/supabase-client.js</code> and replace
-          <code>YOUR_SUPABASE_URL</code> and <code>YOUR_SUPABASE_ANON_KEY</code> with the values from
-          your Supabase project (Settings &rarr; API). See README.md for the full setup steps.
-        </p>`;
-    } else {
-      // If already logged in, skip straight to the dashboard
-      supabase.auth.getSession().then(({ data: { session } }) => {
-        if(session) window.location.href = 'dashboard.html';
-      });
+    const form = document.getElementById('login-form');
+    const statusEl = document.getElementById('login-status');
 
-      document.getElementById('login-form').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('li-email').value.trim();
-        const password = document.getElementById('li-password').value;
-        const status = document.getElementById('login-status');
-        const btn = e.target.querySelector('button[type="submit"]');
+    // Safe auto-redirect if already logged in - wrapped so a broken
+    // supabase-client.js can't crash the page before this even loads
+    try{
+      if(typeof SUPABASE_CONFIGURED !== 'undefined' && SUPABASE_CONFIGURED){
+        supabase.auth.getSession().then(({ data: { session } }) => {
+          if(session) window.location.href = 'dashboard.html';
+        });
+      }
+    }catch(err){ console.error('Session check failed:', err); }
 
-        btn.disabled = true;
-        btn.textContent = 'Signing in...';
-        status.textContent = '';
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // ALWAYS stop the page reload, no matter what happens next
+      statusEl.textContent = '';
+      statusEl.className = 'form-status';
 
+      if(typeof SUPABASE_CONFIGURED === 'undefined' || !SUPABASE_CONFIGURED || typeof supabase === 'undefined' || !supabase){
+        statusEl.innerHTML = `Supabase isn't connecting. Open <code>assets/js/supabase-client.js</code> and check for typos in the URL/key lines — a common one is extra quote marks (e.g. <code>''https://...''</code> instead of <code>'https://...'</code>).`;
+        statusEl.className = 'form-status error';
+        return;
+      }
+
+      const email = document.getElementById('li-email').value.trim();
+      const password = document.getElementById('li-password').value;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Signing in...';
+
+      try{
         const { error } = await supabase.auth.signInWithPassword({ email, password });
-
         if(error){
-          status.textContent = error.message;
-          status.className = 'form-status error';
-          btn.disabled = false;
-          btn.textContent = 'Sign In';
+          statusEl.textContent = error.message;
+          statusEl.className = 'form-status error';
         } else {
           window.location.href = 'dashboard.html';
         }
-      });
-    }
+      }catch(err){
+        statusEl.textContent = 'Unexpected error: ' + err.message;
+        statusEl.className = 'form-status error';
+      }finally{
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+      }
+    });
   </script>
 </body>
 </html>
