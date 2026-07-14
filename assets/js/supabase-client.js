@@ -7,7 +7,7 @@
    is enabled on your tables (see README for the policies).
    ============================================================ */
 
-const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+const SUPABASE_URL = 'https://enjzzwwxklijenjvrxqm.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVuanp6d3d4a2xpamVuanZyeHFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM5NTQ1NTAsImV4cCI6MjA5OTUzMDU1MH0.goRd-B540bESqXIKpnMOk-UUcBJHWQGOm7PuqdoP2o4';
 
 const SUPABASE_CONFIGURED = SUPABASE_URL !== 'https://enjzzwwxklijenjvrxqm.supabase.co' && SUPABASE_ANON_KEY !== 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVuanp6d3d4a2xpamVuanZyeHFtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM5NTQ1NTAsImV4cCI6MjA5OTUzMDU1MH0.goRd-B540bESqXIKpnMOk-UUcBJHWQGOm7PuqdoP2o4';
