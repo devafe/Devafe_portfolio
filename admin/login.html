@@ -32,33 +32,42 @@
 
   <script src="../assets/js/supabase-client.js"></script>
   <script>
-    // If already logged in, skip straight to the dashboard
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if(session) window.location.href = 'dashboard.html';
-    });
+    if(!SUPABASE_CONFIGURED){
+      document.getElementById('login-form').innerHTML = `
+        <p class="form-status error" style="text-align:left;">
+          Supabase isn't connected yet. Open <code>assets/js/supabase-client.js</code> and replace
+          <code>YOUR_SUPABASE_URL</code> and <code>YOUR_SUPABASE_ANON_KEY</code> with the values from
+          your Supabase project (Settings &rarr; API). See README.md for the full setup steps.
+        </p>`;
+    } else {
+      // If already logged in, skip straight to the dashboard
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        if(session) window.location.href = 'dashboard.html';
+      });
 
-    document.getElementById('login-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('li-email').value.trim();
-      const password = document.getElementById('li-password').value;
-      const status = document.getElementById('login-status');
-      const btn = e.target.querySelector('button[type="submit"]');
+      document.getElementById('login-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const email = document.getElementById('li-email').value.trim();
+        const password = document.getElementById('li-password').value;
+        const status = document.getElementById('login-status');
+        const btn = e.target.querySelector('button[type="submit"]');
 
-      btn.disabled = true;
-      btn.textContent = 'Signing in...';
-      status.textContent = '';
+        btn.disabled = true;
+        btn.textContent = 'Signing in...';
+        status.textContent = '';
 
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+        const { error } = await supabase.auth.signInWithPassword({ email, password });
 
-      if(error){
-        status.textContent = error.message;
-        status.className = 'form-status error';
-        btn.disabled = false;
-        btn.textContent = 'Sign In';
-      } else {
-        window.location.href = 'dashboard.html';
-      }
-    });
+        if(error){
+          status.textContent = error.message;
+          status.className = 'form-status error';
+          btn.disabled = false;
+          btn.textContent = 'Sign In';
+        } else {
+          window.location.href = 'dashboard.html';
+        }
+      });
+    }
   </script>
 </body>
 </html>
